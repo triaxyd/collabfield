@@ -25,5 +25,7 @@ module Collabfield
     # config.eager_load_paths << Rails.root.join("extras")
     # look for assets
     config.assets.paths << Rails.root.join("app", "assets", "stylesheets")
+
+    config.action_controller.include_all_helpers = false
   end
 end
