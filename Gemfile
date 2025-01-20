@@ -4,8 +4,10 @@ source "https://rubygems.org"
 gem "bootstrap", "~> 5.0"
 gem "sassc-rails"
 
-gem 'devise', '~> 4.9', '>= 4.9.4'
-gem 'bootstrap_form'
+gem "devise", "~> 4.9", ">= 4.9.4"
+gem "bootstrap_form"
+
+gem "faker", "~> 3.5", ">= 3.5.1"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 8.0.1"
