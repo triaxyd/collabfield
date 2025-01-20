@@ -1,22 +1,26 @@
-<div class="col-sm-3 single-post-card" id="<%= post_path(post.id) %>">
-  <div class="card h-100">
-    <div class="card-body">
+<div class="col-md-4 col-sm-6 col-xs-12 single-post-card" 
+        id="<%= post_path(post.id) %>"
+        style="min-height: 135px; max-height: 135px; box-shadow: 1px 1px 4px rgba(0,0,0,0.3); color: black; padding: 10px; text-align: left; transition: border 0.1s, background 0.5s; border-radius: 5px; background-color: #f8f9fa; margin-bottom: 20px;">
+  <div class="card h-100" style="border: none; box-shadow: none;">
+    <div class="card-body" style="padding: 0;">
       <!-- Truncated Title -->
-      <h4 class="card-title text-truncate" title="<%= post.title %>">
+      <h4 class="post-text card-title text-truncate" style="overflow: hidden; font-size: 16px; font-weight: bold; margin-bottom: 10px;" title="<%= post.title %>">
         <%= truncate(post.title, length: 60) %>
       </h4>
       <!-- Post Content -->
       <div class="post-content">
-        <div class="posted-by text-muted mb-2">
-          <small>Posted by <%= post.user.name %></small>
+        <div class="posted-by text-muted mb-2" style="font-size: 12px; margin-bottom: 5px;">
+            Posted by <%= post.user.name %>
         </div>
-        <h5 class="card-subtitle mb-2"><%= post.title %></h5>
-        <p class="card-text text-truncate">
+        <h5 class="card-subtitle mb-2" style="font-size: 14px; margin-bottom: 5px;"> 
+            <%= post.title %>
+        </h5>
+        <p class="card-text text-truncate" style="font-size: 13px; color: #333;">
           <%= post.content %>
         </p>
         <!-- Interested Link -->
-        <%= link_to "I'm interested", post_path(post.id), class: 'btn btn-primary btn-sm' %>
+        <a href="<%= post_path(post.id) %>" class="btn btn-primary btn-sm">I'm interested</a>
       </div>
     </div>
   </div><!-- card -->
-</div><!-- col-sm-3 -->
+</div><!-- col -->
