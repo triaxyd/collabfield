@@ -1,0 +1,22 @@
+<div class="col-sm-3 single-post-card" id="<%= post_path(post.id) %>">
+  <div class="card h-100">
+    <div class="card-body">
+      <!-- Truncated Title -->
+      <h4 class="card-title text-truncate" title="<%= post.title %>">
+        <%= truncate(post.title, length: 60) %>
+      </h4>
+      <!-- Post Content -->
+      <div class="post-content">
+        <div class="posted-by text-muted mb-2">
+          <small>Posted by <%= post.user.name %></small>
+        </div>
+        <h5 class="card-subtitle mb-2"><%= post.title %></h5>
+        <p class="card-text text-truncate">
+          <%= post.content %>
+        </p>
+        <!-- Interested Link -->
+        <%= link_to "I'm interested", post_path(post.id), class: 'btn btn-primary btn-sm' %>
+      </div>
+    </div>
+  </div><!-- card -->
+</div><!-- col-sm-3 -->
