@@ -1,3 +1,4 @@
+<%= render 'posts/modal' %>  <!-- This renders the modal at the top of the page -->
 <div class="container">
   <div class="row">
     <!-- Side Menu -->
@@ -8,6 +9,7 @@
     <div id="main-content" class="col-sm-9 bg-white" style="min-height: 800px; padding-top: 10px;">
       <div class="row">
         <%= render @posts %>
+        <%= render 'posts/modal' %>
       </div>
     </div><!-- main-content -->
   </div><!-- row -->
