@@ -288,5 +288,12 @@ a:hover, a:active, a:link, a:visited {
         align-self: center; /* Ensures button aligns properly */
     }
 
+    
+    @media only screen and (min-width:767px) and (max-width: 1000px) {
+        .container {
+           width: 100% !important;
+        }
+      }
+
 }
 
