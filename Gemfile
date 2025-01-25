@@ -9,6 +9,8 @@ gem "bootstrap_form"
 
 gem "faker", "~> 3.5", ">= 3.5.1"
 
+gem "will_paginate", "~> 4.0", ">= 4.0.1"
+
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 8.0.1"
 # The modern asset pipeline for Rails [https://github.com/rails/propshaft]
