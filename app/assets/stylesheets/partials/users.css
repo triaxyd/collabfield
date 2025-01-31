@@ -1,5 +1,7 @@
-.edit-profile {
+.edit_user {
     padding-top: 50px;
+    padding-left: 75px;
+    padding-right: 75px;
     .update-btn {
         color: white;
         background: #323738;
@@ -16,12 +18,13 @@
         background: red;
     }
 }
-
-.new-post, .edit-profile {
+.edit_user h2{
+    color:white;
+}
+.new-post, .edit_user {
     height: calc(100vh - 50px);
     background-color: white;
     h1 {
-        text-align: center;
         margin: 25px 0;
     }
     input, textarea, select {
