@@ -30,4 +30,14 @@ Rails.application.routes.draw do
       get "team"
     end
   end
+
+  namespace :private do
+    resources :conversations, only: [:create] do
+      member do
+        post :close
+        post :open
+      end
+    end
+    resources :messages, only: [:index, :create]
+  end
 end
