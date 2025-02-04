@@ -1,0 +1,17 @@
+.conversations-name {
+    margin: 15px 0px 15px 0px;
+    text-align: center;
+    font-weight: bold;
+    color: white;
+}
+.conversations-list{
+    text-align:center;
+}
+.conversations-list .list-group-item a{
+    color: black;
+    text-decoration:none;
+}
+
+.conversations-list .list-group-item:hover{
+    background-color: lightblue;
+}

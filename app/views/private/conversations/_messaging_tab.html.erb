@@ -1,0 +1,10 @@
+<div id="messaging-tab-content" class="hidden">
+  <h5>Your Messages</h5>
+  <ul>
+    <% current_user.private_conversations.each do |conversation| %>
+      <li>
+        <%= link_to conversation.recipient.email, private_conversation_path(conversation), remote: true %>
+      </li>
+    <% end %>
+  </ul>
+</div>

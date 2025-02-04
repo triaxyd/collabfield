@@ -32,7 +32,7 @@ Rails.application.routes.draw do
   end
 
   namespace :private do
-    resources :conversations, only: [:create] do
+    resources :conversations, only: [:index, :show, :create] do
       member do
         post :close
         post :open

@@ -1,0 +1,18 @@
+<!-- app/views/private/conversations/index.html.erb -->
+<div class="container">
+  <div class="row">
+    <h2 class="conversations-name">Your Conversations</h2>
+    <% if @conversations.any? %>
+      <ul class="list-group conversations-list">
+        <% @conversations.each do |conversation| %>
+          <% other_user = conversation.sender == current_user ? conversation.recipient : conversation.sender %>
+          <li class="list-group-item">
+            <%= link_to other_user.name, private_messages_path(conversation_id: conversation.id), class: "text-decoration-none" %>
+          </li>
+        <% end %>
+      </ul>
+    <% else %>
+      <p>No conversations yet.</p>
+    <% end %>
+    </div>
+</div>

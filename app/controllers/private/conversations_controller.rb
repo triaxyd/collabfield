@@ -16,5 +16,8 @@ class Private::ConversationsController < ApplicationController
         format.js { render partial: "posts/show/contact_user/message_form/fail" }
       end
     end
+    end
+  def index
+    @conversations = Private::Conversation.where("sender_id = ? OR recipient_id = ?", current_user.id, current_user.id)
   end
 end
