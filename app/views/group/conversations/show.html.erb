@@ -1,0 +1,13 @@
+<h1><%= @conversation.name %></h1>
+
+<div id="messages">
+  <% @messages.each do |message| %>
+    <p><strong><%= message.user.name %>:</strong> <%= message.content %></p>
+  <% end %>
+</div>
+
+<%= form_with model: @message, url: group_messages_path do |f| %>
+  <%= f.hidden_field :conversation_id, value: @conversation.id %>
+  <%= f.text_area :content, required: true %>
+  <%= f.submit "Send" %>
+<% end %>

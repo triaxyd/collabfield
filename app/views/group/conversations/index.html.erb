@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row">
+    <h2 class="conversations-name">Your Group Conversations</h2>
+    <% if @conversations.any? %>
+    <ul class="list-group conversations-list">
+      <% @conversations.each do |conversation| %>
+        <li class="list-group-item">
+          <%= link_to conversation.name, group_conversation_path(conversation) %>
+        </li>
+      <% end %>
+    </ul>
+    <% else %>
+      <p>No conversations yet.</p>
+    <% end %>
+  </div>
+</div>

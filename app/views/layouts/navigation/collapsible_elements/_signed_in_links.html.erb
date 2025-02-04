@@ -3,8 +3,10 @@
         <span id="user-name"><%= current_user.name %></span>
     </a>
     <ul class="dropdown-menu">
-        <li><%= link_to "Messages",private_conversations_path, class: 'dropdown-item text-white'  %>
-        <li><%= link_to 'Edit Profile', edit_user_registration_path, class: 'dropdown-item text-white' %></li>
-        <li><%= button_to 'Log out', destroy_user_session_path, method: :delete, class: 'dropdown-item text-white', form: { style: "display: inline;" } %></li>
+      <li><%= link_to "Private Messages",private_conversations_path, class: 'dropdown-item text-white'  %>
+      <li><%= link_to "Create Group", new_group_conversation_path, class: 'dropdown-item text-white' %></li>
+      <li><%= link_to "Group Conversations", group_conversations_path, class: 'dropdown-item text-white' %></li>
+      <li><%= link_to 'Edit Profile', edit_user_registration_path, class: 'dropdown-item text-white' %></li>
+      <li><%= button_to 'Log out', destroy_user_session_path, method: :delete, class: 'dropdown-item text-white', form: { style: "display: inline;" } %></li>
     </ul>
 </li>
