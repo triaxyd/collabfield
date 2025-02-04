@@ -1,0 +1,17 @@
+<div class="container" style="background-color: white; padding:20px;">
+  <div class="row">
+    <h2>Conversation with <%= @conversation.sender == current_user ? @conversation.recipient.name : @conversation.sender.name %></h2>
+
+    <div id="messages" data-messages-target="messages">
+      <%= render @messages %>
+    </div>
+
+    <%= form_with(model: [@conversation, Private::Message.new], url: private_messages_path(conversation_id: @conversation.id), method: :post, remote: true) do |f| %>
+      <div class="form-group">
+        <%= f.text_area :body, class: "form-control", placeholder: "Type your message..." %>
+      </div>
+      <%= f.submit "Send", class: "btn btn-primary mt-2" %>
+    <% end %>
+  </div>
+</div>
+
