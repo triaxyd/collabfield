@@ -83,7 +83,7 @@ test:
 production:
   primary: &primary_production
     <<: *default
-    database: collabfield_production
+    database: <%= ENV["DATABASE_URL"] %>
     username: collabfield
     password: <%= ENV["COLLABFIELD_DATABASE_PASSWORD"] %>
   cache:
