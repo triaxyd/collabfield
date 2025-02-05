@@ -5,11 +5,16 @@ gem "bootstrap", "~> 5.0"
 gem "sassc-rails"
 
 gem "devise", "~> 4.9", ">= 4.9.4"
+gem "omniauth-facebook"
 gem "bootstrap_form"
 
 gem "faker", "~> 3.5", ">= 3.5.1"
 
 gem "will_paginate", "~> 4.0", ">= 4.0.1"
+
+gem "dotenv-rails", groups: [ :development, :test ]
+
+
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 8.0.1"
@@ -65,6 +70,7 @@ end
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
+  gem "localhost"
 end
 
 group :test do

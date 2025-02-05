@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: { registrations: "registrations" }
+  devise_for :users, controllers: {
+  omniauth_callbacks: "users/omniauth_callbacks",
+  registrations: "registrations"
+}
+
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
@@ -32,12 +37,12 @@ Rails.application.routes.draw do
   end
 
   namespace :private do
-    resources :conversations, only: [:index, :show, :create] do
+    resources :conversations, only: [ :index, :show, :create ] do
       member do
         post :close
         post :open
       end
     end
-    resources :messages, only: [:index, :create]
+    resources :messages, only: [ :index, :create ]
   end
 end
