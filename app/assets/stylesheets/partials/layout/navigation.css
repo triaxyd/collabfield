@@ -34,7 +34,11 @@ nav {
 }
 
 .navbar-brand {
-    margin: 0 0 0 10px !important;
+    margin: 0 0 0 0px !important;
+    padding: 2px;
+    border-radius: 5px;
+    font-size: 2rem;
+    color: white !important;
 }
 
 .brand-mobile {

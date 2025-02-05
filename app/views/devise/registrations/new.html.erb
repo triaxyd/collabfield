@@ -1,9 +1,9 @@
-<div class="container" id="sign-up-form">
-  <div class="row">
-    <h1>Get in touch with like-minded people</h1>
+<div class="container d-flex justify-content-center align-items-center" style="padding: 10px;" id="sign-up-form">
+  <div class="row w-50" style="background-color: #fff; padding: 20px; border-radius: 5px;">
+    <h1 style="color:#AAAACC">Get in touch with like-minded people</h1>
     <h3>Create, study, accomplish goals together</h3>
 
-    <div class="col-sm-offset-4 col-sm-4">
+    <div class="col-sm-offset-4 col-sm-16">
       <h3>Sign up <small>it's free!</small></h3> 
         <%= bootstrap_form_for(resource, 
                               :as => resource_name, 
@@ -21,7 +21,7 @@
           <%= f.password_field :password_confirmation, 
                               placeholder: 'password confirmation', 
                               class: 'form-control' %>
-          <%= f.submit 'Sign up', class: 'btn sign-up-button' %>
+          <div style="text-align:center"><%= f.submit 'Sign up', class: 'btn sign-up-button'%></div>
         <% end %>
     </div>
   </div>
@@ -33,7 +33,6 @@
             font-size: 36px !important;
             font-size: 3.6rem !important;
         }
-        text-align: center;
         padding-bottom: 20px;
     }
 </style>
