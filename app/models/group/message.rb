@@ -1,6 +1,5 @@
 class Group::Message < ApplicationRecord
-  serialize :seen_by, Array
-  serialize :added_new_users, Array
+  serialize :added_new_users, coder: JSON
   self.table_name = "group_messages"
 
   belongs_to  :conversation,

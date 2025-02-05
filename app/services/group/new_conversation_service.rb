@@ -3,39 +3,40 @@ module Group
   class NewConversationService
     def initialize(params)
       @creator_id = params[:creator_id]
-      @private_conversation_id = params[:private_conversation_id]
-      @new_user_id = params[:new_user_id]
+      @user_ids = params[:user_ids] || []
     end
 
     def call
       creator = User.find(@creator_id)
-      pchat_opposed_user = Private::Conversation.find(@private_conversation_id)
-                                                .opposed_user(creator)
-      new_user_to_chat = User.find(@new_user_id)
-      new_group_conversation = Group::Conversation.new
-      new_group_conversation.name = '' + creator.name + ', ' +
-        pchat_opposed_user.name + ', ' +
-        new_user_to_chat.name
+      users = User.where(id: @user_ids) # Find selected users
+
+      new_group_conversation = Group::Conversation.new(name: generate_group_name(creator, users))
+
       if new_group_conversation.save
-        arr_of_users_ids = [creator.id, pchat_opposed_user.id, new_user_to_chat.id]
-        # add users to the conversation
-        creator.group_conversations << new_group_conversation
-        pchat_opposed_user.group_conversations << new_group_conversation
-        new_user_to_chat.group_conversations << new_group_conversation
-        # create an initial message with an information about the conversation
-        create_initial_message(creator, arr_of_users_ids, new_group_conversation)
-        # return the conversation
-        new_group_conversation
+        # Add all selected users to the conversation
+        (users + [creator]).each do |user|
+          user.group_conversations << new_group_conversation
+        end
+
+        # Create an initial message
+        create_initial_message(creator, users, new_group_conversation)
+
+        return new_group_conversation
+      else
+        return nil
       end
     end
 
     private
+    def generate_group_name(creator, users)
+      "#{creator.name}, " + users.pluck(:name).join(", ")
+    end
 
-    def create_initial_message(creator, arr_of_users_ids, new_group_conversation)
-      message = Group::Message.create(
+    def create_initial_message(creator, users, new_group_conversation)
+      Group::Message.create(
         user_id: creator.id,
-        content: 'Conversation created by ' + creator.name,
-        added_new_users: arr_of_users_ids ,
+        content: "Conversation created by #{creator.name}",
+        added_new_users: users.map(&:id),
         conversation_id: new_group_conversation.id
       )
     end
