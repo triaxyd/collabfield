@@ -1,4 +1,6 @@
-<h2 style="padding-left:75px; color:white;">Edit <%= resource_name.to_s.humanize %></h2>
+<div class="container d-flex justify-content-center align-items-center" style="padding: 10px;">
+  <div class="row w-50" style="background-color: #fff; padding: 20px; border-radius: 5px;">
+    <h2 style="color:#AAAACC; text-align:center;">Edit <%= resource_name.to_s.humanize %></h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
@@ -41,3 +43,6 @@
 <div>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %></div>
 
 <%= link_to "Back", :back %>
+  </div>
+</div>
+

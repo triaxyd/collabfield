@@ -1,13 +1,25 @@
-<h1><%= @conversation.name %></h1>
+<div class="container d-flex justify-content-center align-items-center" style="padding: 20px;">
+  <div class="row" style="background-color: #fff; padding: 20px; border-radius: 5px;">
+    <h1><%= @conversation.name %></h1>
 
-<div id="messages">
-  <% @messages.each do |message| %>
-    <p><strong><%= message.user.name %>:</strong> <%= message.content %></p>
-  <% end %>
+    <div id="group-messages">
+      <% @messages.each do |message| %>
+        <div class="group-message <%= 'group-own-message' if message.user == current_user %>">
+          <p><strong><%= message.user.name %>:</strong> <%= message.content %></p> 
+        </div>
+      <% end %>
+    </div>
+
+    <%= form_with model: @message, url: group_messages_path do |f| %>
+      <div class="form-group">
+        <%= f.hidden_field :conversation_id, value: @conversation.id %>
+        <%= f.text_area :content, required: true %>
+      </div>
+      <%= f.submit "Send", class: "btn btn-primary mt-2" %>
+    <% end %>
+    
+  </div>
 </div>
 
-<%= form_with model: @message, url: group_messages_path do |f| %>
-  <%= f.hidden_field :conversation_id, value: @conversation.id %>
-  <%= f.text_area :content, required: true %>
-  <%= f.submit "Send" %>
-<% end %>
+
+

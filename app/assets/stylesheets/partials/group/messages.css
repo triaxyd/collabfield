@@ -1,0 +1,20 @@
+.group-message {
+    padding: 10px;
+    margin: 5px;
+    border-radius: 10px;
+    background-color: #f1f1f1;
+    width: fit-content;
+}
+
+.group-own-message {
+    background-color: #7b7bff;
+    color: white;
+    align-self: flex-end;
+}
+
+.group-message-date {
+    text-align: center;
+    font-weight: bold;
+    margin-top: 10px;
+}
+

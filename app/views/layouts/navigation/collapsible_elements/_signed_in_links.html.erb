@@ -1,12 +1,33 @@
 <li class="nav-item dropdown">
-    <a id="user-settings" class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-        <span id="user-name"><%= current_user.name %></span>
-    </a>
-    <ul class="dropdown-menu">
-      <li><%= link_to "Private Messages",private_conversations_path, class: 'dropdown-item text-white'  %>
-      <li><%= link_to "Create Group", new_group_conversation_path, class: 'dropdown-item text-white' %></li>
-      <li><%= link_to "Group Conversations", group_conversations_path, class: 'dropdown-item text-white' %></li>
-      <li><%= link_to 'Edit Profile', edit_user_registration_path, class: 'dropdown-item text-white' %></li>
-      <li><%= button_to 'Log out', destroy_user_session_path, method: :delete, class: 'dropdown-item text-white', form: { style: "display: inline;" } %></li>
-    </ul>
+  <a id="user-settings" class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <span id="user-name"><%= current_user.name %></span>
+  </a>
+  <ul class="dropdown-menu">
+    <li><%= link_to "Private Messages", private_conversations_path, class: 'dropdown-item text-white' %></li>
+    <li><%= link_to "Create Group", new_group_conversation_path, class: 'dropdown-item text-white' %></li>
+    <li><%= link_to "Group Conversations", group_conversations_path, class: 'dropdown-item text-white' %></li>
+    <li><%= link_to 'Edit Profile', edit_user_registration_path, class: 'dropdown-item text-white' %></li>
+    <li>
+      <%= button_to 'Log out', destroy_user_session_path, method: :delete,
+            class: 'dropdown-item text-black',
+            form: { style: "display: inline;" },
+            style: "background-color: transparent; border: none; color:#882222" %>
+    </li>
+  </ul>
 </li>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const logoutButton = document.querySelector('.dropdown-item.button_to');
+    if (logoutButton) {
+      logoutButton.addEventListener('mouseover', function() {
+        this.style.color = '#343a40';
+        this.style.backgroundColor = '#f8f9fa';
+      });
+      logoutButton.addEventListener('mouseout', function() {
+        this.style.color = 'white';
+        this.style.backgroundColor = 'transparent';
+      });
+    }
+  });
+</script>
